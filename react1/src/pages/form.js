@@ -57,8 +57,8 @@ const jobs = [
 
   let x = Math.floor((Math.random() * 40) + 18);
 
-  let name = Math.floor((Math.random() * 3) + 0);
-  let job = Math.floor((Math.random() * 3) + 0);
+  let name = Math.floor((Math.random() * 4) + 0);
+  let job = Math.floor((Math.random() * 4) + 0);
 
   setname(names[name])
   setjob(jobs[job])
@@ -95,19 +95,25 @@ const jobs = [
       <TextField id="outlined-basic" label="Name" variant="outlined" type="text" 
         onChange={(e) => setname(e.target.value)} 
         value={name}
-        className={emptyFields.includes('name') ? 'error' : ''} />
+        error={name === ''}
+        helperText={name === "" ? 'Empty field!' : ' '}
+        />
         
 
         <TextField id="outlined-basic" label="Age" variant="outlined" type="number" 
         onChange={(e) => setage(e.target.value)} 
         value={age}
-        className={emptyFields.includes('age') ? 'error' : ''} />
+        error={age === ''}
+        helperText={age === "" ? 'Empty field!' : ' '}
+       />
 
 
 <TextField id="outlined-basic" label="Job" variant="outlined" type="text" 
         onChange={(e) => setjob(e.target.value)} 
         value={job}
-        className={emptyFields.includes('job') ? 'error' : ''} />
+        error={job === ''}
+        helperText={job === "" ? 'Empty field!' : ' '}
+        />
 
      
 
