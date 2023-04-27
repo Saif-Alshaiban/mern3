@@ -11,3 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.create {
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 60%;
+  align-items: flex-start;
+  border-style: solid;
+  padding: 15px;
+  
+
+
+}
+
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
+}

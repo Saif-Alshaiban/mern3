@@ -103,6 +103,16 @@ const deleteUser = async (req, res) => {
   }
 
 
+  // delete all 
+
+  const deleteAll = async (req , res) => {
+
+
+    const user = await User.deleteMany({}) 
+    res.status(200).json(user)
+  }
+
+
   // update a workout
 const updateUser = async (req, res) => {
     const { id } = req.params
@@ -129,7 +139,7 @@ const updateUser = async (req, res) => {
 module.exports = {
     getUser , getUsers ,
     createUser , deleteUser ,
-    updateUser
+    updateUser , deleteAll
 }
 
 

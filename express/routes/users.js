@@ -4,7 +4,8 @@ const {
    getUsers,
    createUser,
    deleteUser,
-   updateUser
+   updateUser,
+   deleteAll
 } = require('../controllers/logic')
 
 
@@ -22,6 +23,9 @@ router.post('/', createUser)
 
 // DELETE a workout
 router.delete('/:id', deleteUser)
+
+// DELETE a workout
+router.delete('/', deleteAll)
 
 // UPDATE a workout
 router.patch('/:id', updateUser)

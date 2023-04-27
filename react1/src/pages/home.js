@@ -1,35 +1,40 @@
 
 import CardComponent from '../components/cardComponent';
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useUserContext } from '../useUserContext'
+import UserForm from './form';
 function Home () {
 
  const {users , dispatch} = useUserContext()
- const [employees , setEmployees ] = useState('')
+ 
 
  useEffect(() => {
     const fetchUsers = async () => {
     const response = await fetch('http://localhost:4000/api/users/')
     const json = await response.json()
-     setEmployees(json)
+     
       if (response.ok) {
-        dispatch({type: 'SET_USERS', payload: json})
+      dispatch({type: 'SET_USERS', payload: json})
+      console.log(users)
       }
     }
 
     fetchUsers()
     
-  }, [dispatch])
+  }, [ dispatch ])
 
   
 
 return (
-    <div style={{padding:'35px' , display:'flex' , gap:'15px' , flexDirection:'column'}}>
+    <div style={{padding:'35px' , display:'flex' , gap:'15px' , flexDirection:'column' , width:'100%'}}>
 
+
+<UserForm/>
     
-    {employees && employees.map(x => {
+    {users && users.map(x => {
    return   <CardComponent user={x} key={x._id} />
     })}
+
 
 
 

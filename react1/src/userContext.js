@@ -4,17 +4,22 @@ export const UserContext = createContext()
 
 export const usersReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_USER':
+    case 'SET_USERS':
       return { 
         users: action.payload 
       }
     case 'CREATE_USER':
+     
       return { 
         users: [action.payload, ...state.users] 
       }
     case 'DELETE_USER':
       return { 
         users: state.users.filter(w => w._id !== action.payload._id) 
+      }
+      case 'DELETE_ALL':
+      return { 
+        users: []
       }
     default:
       return state
